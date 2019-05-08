@@ -28,6 +28,8 @@
     "@storybook/addons": "^5.0.11",
     "@storybook/react": "^5.0.11",
     "babel-loader": "^8.0.5",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
     "prettier": "^1.17.0"
   },
   "keywords": [
@@ -42,7 +44,7 @@
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -c .storybook -o .out"
   },
   "repository": {
     "type": "git",
