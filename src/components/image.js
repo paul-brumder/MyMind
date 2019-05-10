@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import styled from "styled-components";
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -13,6 +14,18 @@ import Img from "gatsby-image"
  * - `StaticQuery`: https://gatsby.dev/staticquery
  */
 
+const BgImage = styled(Img)`
+  perspective: 30px;
+  position: fixed !important;
+  width: calc(100% - 4rem);
+  height: calc(100% - 4rem);
+
+  & img {
+    object-fit: contain !important;
+    transition: transform 0.5s;
+  }
+`;
+
 const Image = () => (
   <StaticQuery
     query={graphql`
@@ -20,13 +33,13 @@ const Image = () => (
         placeholderImage: file(relativePath: { eq: "brain.png" }) {
           childImageSharp {
             fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }
       }
     `}
-    render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
+    render={data => <BgImage fluid={data.placeholderImage.childImageSharp.fluid} />}
   />
 )
 export default Image
