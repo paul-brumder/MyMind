@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect, useRef} from "react"
 import { Link } from "gatsby"
 import styled from "styled-components";
 
@@ -74,17 +74,24 @@ const Buttons = styled.div`
   }
 `;
 
-const IndexPage = () => (
-  <Wrapper>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Blog.</h1>
-    <Image />
-    <Buttons>
-      <Link to="/page-2/" />
-      <Link to="/page-2/" />
-      <Link to="/page-2/" />
-    </Buttons>
-  </Wrapper>
-)
+const IndexPage = () => {
+  const test = useRef(null);
+
+  useEffect(() => {
+    console.log("hello", test.current.offsetTop);
+  });
+  return (
+    <Wrapper>
+      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <h1>Blog.</h1>
+      <Image />
+      <Buttons ref={test}>
+        <Link to="/page-2/" />
+        <Link to="/page-2/" />
+        <Link to="/page-2/" />
+      </Buttons>
+    </Wrapper>
+  )
+}
 
 export default IndexPage
