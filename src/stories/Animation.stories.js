@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Gooey from './Gooey';
 import { storiesOf } from '@storybook/react';
 
 const Wrapper = styled.div`
@@ -58,4 +59,7 @@ storiesOf('Animation', module)
       <a href="">Manger</a>
       <a href="">Manger</a>
     </Wrapper>
-  ));
+  ))
+  .add('Gooey', () => (
+    <Gooey />
+  ))
