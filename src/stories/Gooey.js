@@ -54,7 +54,6 @@ const Wrapper = styled.div`
 `;
 
 const Gooey = () => {
-  console.log("fourchette");
   return(
     <Wrapper>
       <div/>
