@@ -24,8 +24,6 @@ const DepthMap = () => {
       canvas.appendChild(app.view);
     }
 
-    // console.log(test);
-  
     const img = new PIXI.Sprite.from(IronMan);
     img.width = width;
     img.height = height;
