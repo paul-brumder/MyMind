@@ -39,7 +39,7 @@ const Wrapper = styled.div`
       left: 30%;
     }
   }
-  
+
   @keyframes gooey-2 {
     0% {
       left: 70%;
@@ -54,12 +54,12 @@ const Wrapper = styled.div`
 `;
 
 const Gooey = () => {
-  return(
+  return (
     <Wrapper>
-      <div/>
-      <div/>
+      <div />
+      <div />
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Gooey
+export default Gooey;

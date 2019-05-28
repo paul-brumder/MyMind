@@ -15,9 +15,9 @@ const Wrapper = styled.div`
     position: relative;
     padding: 2rem;
     animation: test 3s ease-in;
-  
+
     &::after {
-      content: "";
+      content: '';
       height: 2px;
       width: 0;
       background-color: #555;
@@ -26,17 +26,17 @@ const Wrapper = styled.div`
       left: 2rem;
       transition: all 400ms ease-in-out;
     }
-  
+
     &:hover {
-      }
-    
+    }
+
     &:hover::after {
       width: 3.2rem;
       background-color: red;
     }
   }
 
-  @keyframes test { 
+  @keyframes test {
     0% {
       color: red;
     }
@@ -50,13 +50,13 @@ const Wrapper = styled.div`
 `;
 
 const Nav = () => {
-  return(
+  return (
     <Wrapper>
-      <a href="">Manger</a>
-      <a href="">Manger</a>
-      <a href="">Manger</a>
+      <a href="#">Manger</a>
+      <a href="#">Manger</a>
+      <a href="#">Manger</a>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;

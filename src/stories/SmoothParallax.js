@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -39,29 +39,28 @@ const SmoothScroll = () => {
   }
 
   function SmoothScroll(target, speed, smooth) {
-    if (target === document)
-      target =
-        document.documentElement || document.body.parentNode || document.body; // cross browser support for document scrolling
-    var moving = false;
-    var pos = target.scrollTop;
-    target.addEventListener("mousewheel", scrolled, { passive: false });
-    target.addEventListener("DOMMouseScroll", scrolled, { passive: false });
+    if (target === document) {
+      target = document.documentElement || document.body.parentNode || document.body; // cross browser support for document scrolling
+    }
+    const moving = false;
+    let pos = target.scrollTop;
+    target.addEventListener('mousewheel', scrolled, { passive: false });
+    target.addEventListener('DOMMouseScroll', scrolled, { passive: false });
 
     function scrolled(e) {
       e.preventDefault(); // disable default scrolling
 
-      var delta = normalizeWheelDelta(e)
+      const delta = normalizeWheelDelta(e);
 
       pos += -delta * speed;
-      pos = Math.max(
-        0,
-        Math.min(pos, target.scrollHeight - target.clientHeight)
-      ); // limit scrolling
+      pos = Math.max(0, Math.min(pos, target.scrollHeight - target.clientHeight)); // limit scrolling
 
-      if (!moving) update()
+      if (!moving) {
+        update();
+      }
     }
 
-    function normalizeWheelDelta(e){
+    function normalizeWheelDelta(e) {
       if (e.detail) {
         if (e.wheelDelta)
           return (e.wheelDelta / e.detail / 40) * (e.detail > 0 ? 1 : -1);
@@ -71,14 +70,18 @@ const SmoothScroll = () => {
     }
 
     function update() {
-      moving = true;
+      let moving = true;
       var delta = (pos - target.scrollTop) / smooth;
       target.scrollTop += delta;
-      if (Math.abs(delta) > 0.5) requestFrame(update);
-      else moving = false;
+      if (Math.abs(delta) > 0.5) {
+        requestFrame(update);
+      } else {
+        moving = false;
+      }
     }
 
-    var requestFrame = function() { // requestAnimationFrame cross browser
+    const requestFrame = function() {
+      // requestAnimationFrame cross browser
       return (
         window.requestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
@@ -89,33 +92,37 @@ const SmoothScroll = () => {
           window.setTimeout(func, 1000 / 50);
         }
       );
-    }()
+    };
   }
 
   const parallax = () => {
-    const test = document.getElementById("test");
-    const clone = document.getElementById("clone");
-    const img = document.getElementById("img");
+    const test = document.getElementById('test');
+    const clone = document.getElementById('clone');
+    const img = document.getElementById('img');
     const scrollY = window.scrollY;
     test.style.transform = `translate3d(0, ${-scrollY * 0.5}px, 0)`;
     clone.style.transform = `translate3d(0, ${-scrollY * 0.1}px, 0)`;
     img.style.transform = `translate3d(0, ${-scrollY * 0.3}px, 0)`;
     console.log(scrollY);
     if (scrollY > 450) {
-      clone.style.color = "red";
+      clone.style.color = 'red';
     } else {
-      clone.style.color = "white";
+      clone.style.color = 'white';
     }
   };
 
-  window.addEventListener("scroll", function() {
+  window.addEventListener('scroll', function() {
     requestAnimationFrame(parallax);
   });
 
   useEffect(() => {
     init();
   });
-
+  // useEffect(() => {
+  //   const scrollY = window.scrollY;
+  //   const offsetY = window.pageYOffset;
+  //   console.log(scrollY, offsetY);
+  // });
   return (
     <Wrapper>
       <h1>Test</h1>
