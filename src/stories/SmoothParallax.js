@@ -97,9 +97,12 @@ const SmoothScroll = () => {
     }
   };
 
-  const test = test => {
-    test.map(text => {
-      console.log(text);
+  const setup = options => {
+    // const test = options.test;
+    console.log(options);
+    options.map(text => {
+      text = document.getElementById(text);
+      return console.log(text);
     });
   };
 
@@ -110,7 +113,7 @@ const SmoothScroll = () => {
 
   useEffect(() => {
     init();
-    test(["yo", "lo"]);
+    setup(['test', 'clone']);
   });
   return (
     <Wrapper>
