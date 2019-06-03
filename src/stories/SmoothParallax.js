@@ -84,42 +84,59 @@ const SmoothScroll = () => {
     }
   }
 
-  const parallax = () => {
-    const test = document.getElementById('test');
-    const clone = document.getElementById('clone');
-    const scrollY = window.scrollY;
-    test.style.transform = `translate3d(0, ${-scrollY * 0.5}px, 0)`;
-    clone.style.transform = `translate3d(0, ${-scrollY * 0.1}px, 0)`;
-    if (scrollY > 450) {
-      clone.style.color = 'red';
-    } else {
-      clone.style.color = 'white';
+  // const parallax = () => {
+  //   // const test = document.getElementById('test');
+  //   // const clone = document.getElementById('clone');
+  //   const scrollY = window.scrollY;
+  //   test.style.transform = `translate3d(0, ${-scrollY * 0.5}px, 0)`;
+  //   clone.style.transform = `translate3d(0, ${-scrollY * 0.1}px, 0)`;
+  //   if (scrollY > 450) {
+  //     clone.style.color = 'red';
+  //   } else {
+  //     clone.style.color = 'white';
+  //   }
+  // };
+
+  // const setup = options => {
+  //   // const test = options.test;
+  //   console.log(options);
+  //   options.map(text => {
+  //     text = document.getElementById(text);
+  //     return console.log(text);
+  //   });
+  // };
+
+  const Parallax = {
+    speed: 1,
+    setPin(pins) {
+      const scrollY = window.scrollY;
+      pins.map(pin => {
+        pin = document.getElementById(pin);
+        console.log(pin.speed);
+        pin.style.transform = `translate3d(0, ${-scrollY * this.speed}px, 0)`;
+        return console.log(pin);
+      });
     }
   };
 
-  const setup = options => {
-    // const test = options.test;
-    console.log(options);
-    options.map(text => {
-      text = document.getElementById(text);
-      return console.log(text);
-    });
-  };
-
   window.addEventListener('scroll', function() {
-    requestAnimationFrame(parallax);
-    parallax();
+    // requestAnimationFrame(parallax);
+    // parallax();
   });
 
   useEffect(() => {
     init();
-    setup(['test', 'clone']);
+    Parallax.setPin(['test', 'clone']);
   });
   return (
     <Wrapper>
       <h1>Test</h1>
-      <h2 id="test">Test 2 Scroll</h2>
-      <h2 id="clone">Test 2 Clone Comparison</h2>
+      <h2 id="test" speed="0.5">
+        Test 2 Scroll
+      </h2>
+      <h2 id="clone" speed="0.1">
+        Test 2 Clone Comparison
+      </h2>
       <h3>Test 3 Scroll</h3>
       <h4>Test 4 Scroll</h4>
     </Wrapper>
