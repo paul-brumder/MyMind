@@ -91,29 +91,41 @@ const SmoothScroll = () => {
   //   }
   // };
 
-  const Parallax = {
-    setPin(pin, speed) {
-      const scrollY = window.scrollY;
-      pin = document.getElementById(pin);
-      pin.style.transform = `translate3d(0, ${-scrollY * speed}px, 0)`;
-    }
-    // setDist(distance, setAnim) {
-    //   if (distance && scrollY > distance) {
-    //     setAnim();
-    //   }
-    // },
-    // setAnim(animation) {
-    //   console.log(animation);
-    // }
+  // const Parallax = {
+  //   setPin(pin, speed) {
+  //     this.scrollY = window.scrollY;
+  //     this.pin = pin;
+  //     this.speed = speed;
+  //     pin = document.getElementById(pin);
+  //     pin.style.transform = `translate3d(0, ${-this.scrollY * speed}px, 0)`;
+  //   },
+  //   setDist(distance, setAnim) {
+  //     console.log('yo');
+  //     if (distance && this.scrollY > distance) {
+  //       console.log('hi');
+  //       // return (this.pin.style += setAnim);
+  //     }
+  //   }
+  // };
+
+  const Parallax = function() {
+    this.test = () => {
+      console.log('Hello');
+    };
+    this.test2 = () => {
+      console.log('Hello2');
+    };
   };
 
   useEffect(() => {
     init();
     window.addEventListener('scroll', function() {
+      const clone = new Parallax().test().test2();
       // requestAnimationFrame(Parallax);
-
-      new Parallax.setPin('test', 0.5);
-      new Parallax.setPin('clone', 0.1);
+      // const test1 = ".color = 'red'";
+      // const test2 = ".color = 'purple'";
+      // new Parallax.setPin('test', 0.5).setDist(500, test1);
+      // new Parallax.setPin('clone', 0.1).setDist(600, test2);
     });
   }, [Parallax, init]);
   return (
