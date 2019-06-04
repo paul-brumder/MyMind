@@ -133,7 +133,11 @@ const Image = () => {
           }
         }
       `}
-      render={data => <div id="bg"><BgImage fluid={data.placeholderImage.childImageSharp.fluid} /></div>}
+      render={data => (
+        <div id="bg">
+          <BgImage fluid={data.placeholderImage.childImageSharp.fluid} />
+        </div>
+      )}
     />
   )
 }
