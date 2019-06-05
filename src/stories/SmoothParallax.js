@@ -108,17 +108,18 @@ const SmoothScroll = () => {
   //   }
   // };
 
-  const Parallax = function() {
-    this.test = () => {
-      console.log('Hello');
-    };
-    this.test2 = () => {
-      console.log('Hello2');
-    };
-  };
-
   useEffect(() => {
     init();
+    const Parallax = function() {
+      this.test = () => {
+        console.log('Hello');
+        return this;
+      };
+      this.test2 = () => {
+        console.log('Hello2');
+        return this;
+      };
+    };
     window.addEventListener('scroll', function() {
       const clone = new Parallax().test().test2();
       // requestAnimationFrame(Parallax);
@@ -127,7 +128,7 @@ const SmoothScroll = () => {
       // new Parallax.setPin('test', 0.5).setDist(500, test1);
       // new Parallax.setPin('clone', 0.1).setDist(600, test2);
     });
-  }, [Parallax, init]);
+  }, [init]);
   return (
     <Wrapper>
       <h1>Test</h1>
