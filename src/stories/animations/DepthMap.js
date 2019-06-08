@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as PIXI from 'pixi.js';
-import IronMan from '../images/iron-man.jpg';
-import IronManDp from '../images/iron-man-dp.jpg';
+import IronMan from '../../images/iron-man.jpg';
+import IronManDp from '../../images/iron-man-dp.jpg';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
