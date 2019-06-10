@@ -28,7 +28,7 @@ const Classic = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 400ms ease-in-out;
+  transition: transform 300ms ease-in-out;
 
   &:hover {
     transform: scale(1.2);
