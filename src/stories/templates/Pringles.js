@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -28,11 +28,9 @@ const Classic = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: ${props =>
+    props.animation === 'classic' ? 'scale(1.2)' : 'translateX(-10%)'};
   transition: transform 300ms ease-in-out;
-
-  &:hover {
-    transform: scale(1.2);
-  }
 
   h2 {
     font-size: 5rem;
@@ -42,16 +40,20 @@ const Classic = styled.div`
 const Flavors = styled(Classic)`
   background: linear-gradient(to right, #de6262, #ffb88c);
   float: right;
+  transform: ${props =>
+    props.animation === 'flavor' ? 'scale(1.2)' : 'translateX(10%)'};
 `;
 
 const Pringles = () => {
+  const [choice, setChoice] = useState('classic');
+
   return (
     <Wrapper>
       <h1>Choose</h1>
-      <Classic>
+      <Classic onMouseOver={() => setChoice('classic')} animation={choice}>
         <h2>Classic</h2>
       </Classic>
-      <Flavors>
+      <Flavors onMouseOver={() => setChoice('flavor')} animation={choice}>
         <h2>Flavors</h2>
       </Flavors>
     </Wrapper>
