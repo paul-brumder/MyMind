@@ -30,6 +30,44 @@ const Wrapper = styled.div`
   }
 `;
 
+const Brand = styled.div`
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 2.5rem;
+  display: inline-flex;
+  z-index: 1;
+
+  span:nth-child(1) {
+    border: 1.5px solid white;
+    padding: 0rem 0.4rem;
+    margin-right: 0.3rem;
+    line-height: 1.8rem;
+    display: flex;
+    align-items: center;
+  }
+`;
+
+const Menu = styled.div`
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  height: 2px;
+  width: 2rem;
+  background: white;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    width: 1.2rem;
+    margin-top: 0.8rem;
+    height: 2px;
+    position: absolute;
+    background: white;
+    right: 0;
+  }
+`;
+
 const Classic = styled.div`
   position: relative;
   background: linear-gradient(to right, #eacda3, #d6ae7b);
@@ -70,6 +108,11 @@ const Pringles = () => {
 
   return (
     <Wrapper animation={choice}>
+      <Brand>
+        <span>C</span>
+        <span>hips</span>
+      </Brand>
+      <Menu />
       <h1>Choose</h1>
       <Classic onMouseOver={() => setChoice('classic')} animation={choice}>
         <h2>Classic</h2>
