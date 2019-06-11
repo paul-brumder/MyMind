@@ -14,16 +14,24 @@ const Wrapper = styled.div`
   overflow: hidden;
 
   h1 {
-    font-size: 10rem;
+    font-size: 13vh;
     position: absolute;
-    top: 15vh;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    left: ${props => (props.animation === 'classic' ? '55%' : '45%')};
+    transform: translate(-50%, -50%);
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    text-orientation: upright;
+    writing-mode: vertical-lr;
+    margin: 0;
+    letter-spacing: 0rem;
+    transition: left 0.8s cubic-bezier(0.42, 0, 0.43, 1.09);
   }
 `;
 
 const Classic = styled.div`
+  position: relative;
   background: linear-gradient(to right, #eacda3, #d6ae7b);
   width: 50vw;
   height: 100vh;
@@ -33,10 +41,20 @@ const Classic = styled.div`
   justify-content: center;
   transform: ${props =>
     props.animation === 'classic' ? 'scale(1.2)' : 'translateX(-10%)'};
-  transition: transform 300ms ease-in-out;
+  transition: transform 0.8s cubic-bezier(0.42, 0, 0.43, 1.09);
+
+  img {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
   h2 {
     font-size: 5rem;
+    z-index: 20;
   }
 `;
 
@@ -51,7 +69,7 @@ const Pringles = () => {
   const [choice, setChoice] = useState('classic');
 
   return (
-    <Wrapper>
+    <Wrapper animation={choice}>
       <h1>Choose</h1>
       <Classic onMouseOver={() => setChoice('classic')} animation={choice}>
         <h2>Classic</h2>
