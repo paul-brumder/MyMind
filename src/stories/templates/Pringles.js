@@ -80,6 +80,7 @@ const Classic = styled.div`
   transform: ${props =>
     props.animation === 'classic' ? 'scale(1.2)' : 'translateX(-10%)'};
   transition: transform 0.8s cubic-bezier(0.42, 0, 0.43, 1.09);
+  flex-direction: column;
 
   img {
     width: 50%;
@@ -103,6 +104,22 @@ const Flavors = styled(Classic)`
     props.animation === 'flavor' ? 'scale(1.2)' : 'translateX(10%)'};
 `;
 
+const Button = styled.button`
+  border: 1.5px solid white;
+  background: transparent;
+  padding: 1rem 3rem;
+  color: white;
+  border-radius: 5rem;
+  z-index: 10;
+  font-weight: 700;
+  transition: all 350ms ease-in-out;
+
+  &:hover {
+    background: white;
+    color: #555;
+  }
+`;
+
 const Pringles = () => {
   const [choice, setChoice] = useState('classic');
 
@@ -117,10 +134,12 @@ const Pringles = () => {
       <Classic onMouseOver={() => setChoice('classic')} animation={choice}>
         <h2>Classic</h2>
         <img src={classicPic} alt="classic" />
+        <Button>I have good taste!</Button>
       </Classic>
       <Flavors onMouseOver={() => setChoice('flavor')} animation={choice}>
         <h2>Flavors</h2>
         <img src={flavorPic} alt="flavor" />
+        <Button>I like bad breath!</Button>
       </Flavors>
     </Wrapper>
   );
