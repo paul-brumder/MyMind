@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import classicPic from '../../images/classic.png';
+import flavorPic from '../../images/flavor.png';
+
 const Wrapper = styled.div`
   position: absolute;
   height: 100vh;
@@ -52,9 +55,11 @@ const Pringles = () => {
       <h1>Choose</h1>
       <Classic onMouseOver={() => setChoice('classic')} animation={choice}>
         <h2>Classic</h2>
+        <img src={classicPic} alt="classic" />
       </Classic>
       <Flavors onMouseOver={() => setChoice('flavor')} animation={choice}>
         <h2>Flavors</h2>
+        <img src={flavorPic} alt="flavor" />
       </Flavors>
     </Wrapper>
   );
