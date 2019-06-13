@@ -28,6 +28,14 @@ const Wrapper = styled.div`
     letter-spacing: 0rem;
     transition: left 0.8s cubic-bezier(0.42, 0, 0.43, 1.09);
   }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+  }
 `;
 
 const Brand = styled.div`
@@ -120,8 +128,14 @@ const Button = styled.button`
   }
 `;
 
+const Content = styled.div`
+  margin: 0 20%;
+  text-align: center;
+`;
+
 const Pringles = () => {
   const [choice, setChoice] = useState('classic');
+  const [content, setContent] = useState(null);
 
   return (
     <Wrapper animation={choice}>
@@ -132,14 +146,57 @@ const Pringles = () => {
       <Menu />
       <h1>Choose</h1>
       <Classic onMouseOver={() => setChoice('classic')} animation={choice}>
-        <h2>Classic</h2>
-        <img src={classicPic} alt="classic" />
-        <Button>I have good taste!</Button>
+        {content !== 'classic' ? (
+          <>
+            <h2>Classic</h2>
+            <img src={classicPic} alt="classic" />
+            <Button onClick={() => setContent('classic')}>I have good taste!</Button>
+          </>
+        ) : (
+          <Content>
+            <h3>Tu es l'égal des dieux !</h3>
+            <p>
+              Contrairement à la plèbe, tu disposes d'un palais développé, tu sais ce
+              qui est bon pour toi et ceux qui t'entourent.
+            </p>
+            <p>
+              Tu n'es pas comme la majorité des gens, tu es un être unique ! Et même
+              si ton génie te paraît incompris n'oublie jamais ces mots de François
+              René de Chateaubriand
+            </p>
+            <p>“Le goût est le bon sens du génie. ”</p>
+          </Content>
+        )}
       </Classic>
       <Flavors onMouseOver={() => setChoice('flavor')} animation={choice}>
-        <h2>Flavors</h2>
-        <img src={flavorPic} alt="flavor" />
-        <Button>I like bad breath!</Button>
+        {content !== 'flavor' ? (
+          <>
+            <h2>Flavors</h2>
+            <img src={flavorPic} alt="flavor" />
+            <Button onClick={() => setContent('flavor')}>I like bad breath!</Button>
+          </>
+        ) : (
+          <Content>
+            <h3>Quelle faute de goût...</h3>
+            <p>
+              Tu es cette personne qui repousse les gens, tu sais, comme ce
+              professeur qui venait te faire la morale très proche de ton visage à 8h
+              le matin avec son haleine fétide.
+            </p>
+            <p>
+              N'espère pas non plus séduire, au mieux tu finiras avec un de tes
+              semblables, c'est à dire une fusion entre goût barbecue et oignon
+              bechamèle entre vos lèvres, Tchernobyl à côté c'est de la rigolade.
+            </p>
+            <p>
+              Si tu avais réellement du goût tu choisirais des Doritos à tremper dans
+              une sauce piquante, mais comme le bon prolo que tu es, tu choisis la
+              facilité et le bas prix, pas étonnant qu'on parle de remontée d'égouts
+              quand tu entres dans la pièce.
+            </p>
+            <p>Bref, tu es une personne détestable.</p>
+          </Content>
+        )}
       </Flavors>
     </Wrapper>
   );
