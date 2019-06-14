@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import {CSSTransition} from 'react-transition-group';
 
 import classicPic from '../../images/classic.png';
 import flavorPic from '../../images/flavor.png';
@@ -12,6 +13,21 @@ const Wrapper = styled.div`
   left: 0;
   color: white;
   overflow: hidden;
+
+  .content-enter {
+    opacity: 0.01;
+  }
+  .content-enter-active {
+    opacity: 1;
+    transition: opacity 350ms ease-in-out;
+  }
+  .content-exit {
+    opacity: 1;
+  }
+  .content-exit-active {
+    opacity: 0;
+    transition: opacity 350ms ease-in-out;
+  }
 
   h1 {
     font-size: 13vh;
@@ -131,11 +147,27 @@ const Button = styled.button`
 const Content = styled.div`
   margin: 0 20%;
   text-align: center;
+  
+  p {
+    opacity: 0;
+    animation: test 1s ease-in-out forwards;
+  }
+
+  @keyframes test {
+    0% {
+      opacity: 0;
+      transform: translateY(20vh);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
 `;
 
 const Pringles = () => {
   const [choice, setChoice] = useState('classic');
-  const [content, setContent] = useState(null);
+  const [content, setContent] = useState(false);
 
   return (
     <Wrapper animation={choice}>
@@ -146,27 +178,33 @@ const Pringles = () => {
       <Menu />
       <h1>Choose</h1>
       <Classic onMouseOver={() => setChoice('classic')} animation={choice}>
-        {content !== 'classic' ? (
+        {!content && (
           <>
             <h2>Classic</h2>
             <img src={classicPic} alt="classic" />
-            <Button onClick={() => setContent('classic')}>I have good taste!</Button>
+            <Button onClick={() => setContent(true)}>I have good taste!</Button>
           </>
-        ) : (
-          <Content>
-            <h3>Tu es l'égal des dieux !</h3>
-            <p>
-              Contrairement à la plèbe, tu disposes d'un palais développé, tu sais ce
-              qui est bon pour toi et ceux qui t'entourent.
-            </p>
-            <p>
-              Tu n'es pas comme la majorité des gens, tu es un être unique ! Et même
-              si ton génie te paraît incompris n'oublie jamais ces mots de François
-              René de Chateaubriand
-            </p>
-            <p>“Le goût est le bon sens du génie. ”</p>
-          </Content>
         )}
+          <CSSTransition
+            in={content}
+            timeout={350}
+            classNames="content"
+            unmountOnExit
+          >
+            <Content animation={content}>
+              <h3>Tu es l'égal des dieux !</h3>
+              <p>
+                Contrairement à la plèbe, tu disposes d'un palais développé, tu sais ce
+                qui est bon pour toi et ceux qui t'entourent.
+              </p>
+              <p>
+                Tu n'es pas comme la majorité des gens, tu es un être unique ! Et même
+                si ton génie te paraît incompris n'oublie jamais ces mots de François
+                René de Chateaubriand
+              </p>
+              <p>“Le goût est le bon sens du génie. ”</p>
+            </Content>
+          </CSSTransition>
       </Classic>
       <Flavors onMouseOver={() => setChoice('flavor')} animation={choice}>
         {content !== 'flavor' ? (
@@ -176,7 +214,7 @@ const Pringles = () => {
             <Button onClick={() => setContent('flavor')}>I like bad breath!</Button>
           </>
         ) : (
-          <Content>
+          <Content animation={content}>
             <h3>Quelle faute de goût...</h3>
             <p>
               Tu es cette personne qui repousse les gens, tu sais, comme ce
