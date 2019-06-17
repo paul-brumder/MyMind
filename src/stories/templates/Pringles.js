@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import {CSSTransition} from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 
 import classicPic from '../../images/classic.png';
 import flavorPic from '../../images/flavor.png';
@@ -147,7 +147,7 @@ const Button = styled.button`
 const Content = styled.div`
   margin: 0 20%;
   text-align: center;
-  
+
   p {
     opacity: 0;
     animation: test 1s ease-in-out forwards;
@@ -185,26 +185,22 @@ const Pringles = () => {
             <Button onClick={() => setContent(true)}>I have good taste!</Button>
           </>
         )}
-          <CSSTransition
-            in={content}
-            timeout={350}
-            classNames="content"
-            unmountOnExit
-          >
-            <Content animation={content}>
-              <h3>Tu es l'égal des dieux !</h3>
-              <p>
-                Contrairement à la plèbe, tu disposes d'un palais développé, tu sais ce
-                qui est bon pour toi et ceux qui t'entourent.
-              </p>
-              <p>
-                Tu n'es pas comme la majorité des gens, tu es un être unique ! Et même
-                si ton génie te paraît incompris n'oublie jamais ces mots de François
-                René de Chateaubriand
-              </p>
-              <p>“Le goût est le bon sens du génie. ”</p>
-            </Content>
-          </CSSTransition>
+        <CSSTransition in={content} timeout={350} classNames="content" unmountOnExit>
+          <Content animation={content}>
+            <h3>Tu es l'égal des dieux !</h3>
+            <p>
+              Contrairement à la plèbe, tu disposes d'un palais développé, tu sais ce
+              qui est bon pour toi et ceux qui t'entourent.
+            </p>
+            <p>
+              Tu n'es pas comme la majorité des gens, tu es un être unique ! Et même
+              si ton génie te paraît incompris n'oublie jamais ces mots de François
+              René de Chateaubriand
+            </p>
+            <p>“Le goût est le bon sens du génie.”</p>
+            <Button onClick={() => setContent(false)}>Close</Button>
+          </Content>
+        </CSSTransition>
       </Classic>
       <Flavors onMouseOver={() => setChoice('flavor')} animation={choice}>
         {content !== 'flavor' ? (
@@ -233,6 +229,7 @@ const Pringles = () => {
               quand tu entres dans la pièce.
             </p>
             <p>Bref, tu es une personne détestable.</p>
+            <Button onClick={() => setContent(false)}>Close</Button>
           </Content>
         )}
       </Flavors>
