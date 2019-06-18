@@ -95,7 +95,7 @@ const Menu = styled.div`
 const Classic = styled.div`
   position: relative;
   background: linear-gradient(to right, #eacda3, #d6ae7b);
-  width: 50vw;
+  width: ${props => (props.classic ? '90vw' : props.flavor ? '10vw' : '50vw')};
   height: 100vh;
   float: left;
   display: flex;
@@ -103,7 +103,7 @@ const Classic = styled.div`
   justify-content: center;
   transform: ${props =>
     props.slide === 'classic' ? 'scale(1.2)' : 'translateX(-10%)'};
-  transition: transform 0.8s cubic-bezier(0.42, 0, 0.43, 1.09);
+  transition: all 0.8s cubic-bezier(0.42, 0, 0.43, 1.09);
   flex-direction: column;
 
   img {
@@ -124,6 +124,7 @@ const Classic = styled.div`
 const Flavors = styled(Classic)`
   background: linear-gradient(to right, #de6262, #ffb88c);
   float: right;
+  width: ${props => (props.flavor ? '90vw' : props.classic ? '10vw' : '50vw')};
   transform: ${props =>
     props.animation === 'flavor' ? 'scale(1.2)' : 'translateX(10%)'};
   /* props.animation.choice === 'flavor'
@@ -175,6 +176,11 @@ const Pringles = () => {
   const [classic, setClassic] = useState(false);
   const [flavor, setFlavor] = useState(false);
 
+  const toggleContent = () => {
+    setClassic(!classic);
+    setFlavor(!flavor);
+  };
+
   return (
     <Wrapper animation={choice}>
       <Brand>
@@ -186,15 +192,21 @@ const Pringles = () => {
       <Classic
         onMouseOver={() => setChoice('classic')}
         slide={choice}
-        open={classic}
+        classic={classic}
+        flavor={flavor}
       >
-        {!classic && (
+        <CSSTransition
+          in={!classic}
+          timeout={350}
+          classNames="content"
+          unmountOnExit
+        >
           <>
             <h2>Classic</h2>
             <img src={classicPic} alt="classic" />
             <Button onClick={() => setClassic(true)}>I have good taste!</Button>
           </>
-        )}
+        </CSSTransition>
         <CSSTransition in={classic} timeout={350} classNames="content" unmountOnExit>
           <Content animation={classic}>
             <h3>Tu es l'égal des dieux !</h3>
@@ -212,14 +224,19 @@ const Pringles = () => {
           </Content>
         </CSSTransition>
       </Classic>
-      <Flavors onMouseOver={() => setChoice('flavor')} animation={choice}>
-        {!flavor && (
+      <Flavors
+        onMouseOver={() => setChoice('flavor')}
+        animation={choice}
+        flavor={flavor}
+        classic={classic}
+      >
+        <CSSTransition in={!flavor} timeout={350} classNames="content" unmountOnExit>
           <>
             <h2>Flavors</h2>
             <img src={flavorPic} alt="flavor" />
             <Button onClick={() => setFlavor('flavor')}>I like bad breath!</Button>
           </>
-        )}
+        </CSSTransition>
         <CSSTransition in={flavor} timeout={350} classNames="content" unmountOnExit>
           <Content animation={flavor}>
             <h3>Quelle faute de goût...</h3>
