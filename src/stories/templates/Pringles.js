@@ -102,7 +102,7 @@ const Classic = styled.div`
   align-items: center;
   justify-content: center;
   transform: ${props =>
-    props.animation === 'classic' ? 'scale(1.2)' : 'translateX(-10%)'};
+    props.slide === 'classic' ? 'scale(1.2)' : 'translateX(-10%)'};
   transition: transform 0.8s cubic-bezier(0.42, 0, 0.43, 1.09);
   flex-direction: column;
 
@@ -126,6 +126,11 @@ const Flavors = styled(Classic)`
   float: right;
   transform: ${props =>
     props.animation === 'flavor' ? 'scale(1.2)' : 'translateX(10%)'};
+  /* props.animation.choice === 'flavor'
+      ? 'scale(1.2)'
+      : !props.animation.flavor
+      ? 'translateX(40%'
+      : 'translateX(10%)'}; */
 `;
 
 const Button = styled.button`
@@ -167,7 +172,8 @@ const Content = styled.div`
 
 const Pringles = () => {
   const [choice, setChoice] = useState('classic');
-  const [content, setContent] = useState(false);
+  const [classic, setClassic] = useState(false);
+  const [flavor, setFlavor] = useState(false);
 
   return (
     <Wrapper animation={choice}>
@@ -177,16 +183,20 @@ const Pringles = () => {
       </Brand>
       <Menu />
       <h1>Choose</h1>
-      <Classic onMouseOver={() => setChoice('classic')} animation={choice}>
-        {!content && (
+      <Classic
+        onMouseOver={() => setChoice('classic')}
+        slide={choice}
+        open={classic}
+      >
+        {!classic && (
           <>
             <h2>Classic</h2>
             <img src={classicPic} alt="classic" />
-            <Button onClick={() => setContent(true)}>I have good taste!</Button>
+            <Button onClick={() => setClassic(true)}>I have good taste!</Button>
           </>
         )}
-        <CSSTransition in={content} timeout={350} classNames="content" unmountOnExit>
-          <Content animation={content}>
+        <CSSTransition in={classic} timeout={350} classNames="content" unmountOnExit>
+          <Content animation={classic}>
             <h3>Tu es l'égal des dieux !</h3>
             <p>
               Contrairement à la plèbe, tu disposes d'un palais développé, tu sais ce
@@ -198,19 +208,20 @@ const Pringles = () => {
               René de Chateaubriand
             </p>
             <p>“Le goût est le bon sens du génie.”</p>
-            <Button onClick={() => setContent(false)}>Close</Button>
+            <Button onClick={() => setClassic(false)}>Close</Button>
           </Content>
         </CSSTransition>
       </Classic>
       <Flavors onMouseOver={() => setChoice('flavor')} animation={choice}>
-        {content !== 'flavor' ? (
+        {!flavor && (
           <>
             <h2>Flavors</h2>
             <img src={flavorPic} alt="flavor" />
-            <Button onClick={() => setContent('flavor')}>I like bad breath!</Button>
+            <Button onClick={() => setFlavor('flavor')}>I like bad breath!</Button>
           </>
-        ) : (
-          <Content animation={content}>
+        )}
+        <CSSTransition in={flavor} timeout={350} classNames="content" unmountOnExit>
+          <Content animation={flavor}>
             <h3>Quelle faute de goût...</h3>
             <p>
               Tu es cette personne qui repousse les gens, tu sais, comme ce
@@ -229,9 +240,9 @@ const Pringles = () => {
               quand tu entres dans la pièce.
             </p>
             <p>Bref, tu es une personne détestable.</p>
-            <Button onClick={() => setContent(false)}>Close</Button>
+            <Button onClick={() => setFlavor(false)}>Close</Button>
           </Content>
-        )}
+        </CSSTransition>
       </Flavors>
     </Wrapper>
   );
