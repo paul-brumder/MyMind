@@ -19,7 +19,8 @@ const Wrapper = styled.div`
   }
   .content-enter-active {
     opacity: 1;
-    transition: opacity 350ms ease-in-out;
+    transition: opacity 250ms 450ms ease-in-out;
+    position: absolute;
   }
   .content-exit {
     opacity: 1;
@@ -27,6 +28,7 @@ const Wrapper = styled.div`
   .content-exit-active {
     opacity: 0;
     transition: opacity 350ms ease-in-out;
+    position: absolute;
   }
 
   h1 {
@@ -126,12 +128,11 @@ const Flavors = styled(Classic)`
   float: right;
   width: ${props => (props.flavor ? '90vw' : props.classic ? '10vw' : '50vw')};
   transform: ${props =>
-    props.animation === 'flavor' ? 'scale(1.2)' : 'translateX(10%)'};
-  /* props.animation.choice === 'flavor'
+    props.flavor
+      ? 'scale(1) translateX(0%)'
+      : props.animation === 'flavor'
       ? 'scale(1.2)'
-      : !props.animation.flavor
-      ? 'translateX(40%'
-      : 'translateX(10%)'}; */
+      : 'translateX(10%)'};
 `;
 
 const Button = styled.button`
@@ -140,9 +141,9 @@ const Button = styled.button`
   padding: 1rem 3rem;
   color: white;
   border-radius: 5rem;
-  z-index: 10;
   font-weight: 700;
   transition: all 350ms ease-in-out;
+  position: relative;
 
   &:hover {
     background: white;
@@ -151,8 +152,9 @@ const Button = styled.button`
 `;
 
 const Content = styled.div`
-  margin: 0 20%;
+  margin: ${props => (props.classic ? ' 0 0 0 10vw' : '0 10vw 0 0')};
   text-align: center;
+  position: absolute;
 
   p {
     opacity: 0;
@@ -197,7 +199,7 @@ const Pringles = () => {
       >
         <CSSTransition
           in={!classic}
-          timeout={350}
+          timeout={700}
           classNames="content"
           unmountOnExit
         >
@@ -207,7 +209,7 @@ const Pringles = () => {
             <Button onClick={() => setClassic(true)}>I have good taste!</Button>
           </>
         </CSSTransition>
-        <CSSTransition in={classic} timeout={350} classNames="content" unmountOnExit>
+        <CSSTransition in={classic} timeout={700} classNames="content" unmountOnExit>
           <Content animation={classic}>
             <h3>Tu es l'égal des dieux !</h3>
             <p>
@@ -230,15 +232,15 @@ const Pringles = () => {
         flavor={flavor}
         classic={classic}
       >
-        <CSSTransition in={!flavor} timeout={350} classNames="content" unmountOnExit>
+        <CSSTransition in={!flavor} timeout={700} classNames="content" unmountOnExit>
           <>
             <h2>Flavors</h2>
             <img src={flavorPic} alt="flavor" />
             <Button onClick={() => setFlavor('flavor')}>I like bad breath!</Button>
           </>
         </CSSTransition>
-        <CSSTransition in={flavor} timeout={350} classNames="content" unmountOnExit>
-          <Content animation={flavor}>
+        <CSSTransition in={flavor} timeout={700} classNames="content" unmountOnExit>
+          <Content>
             <h3>Quelle faute de goût...</h3>
             <p>
               Tu es cette personne qui repousse les gens, tu sais, comme ce
