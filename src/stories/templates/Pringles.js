@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   }
   .content-enter-active {
     opacity: 1;
-    transition: opacity 250ms 450ms ease-in-out;
+    transition: opacity 350ms 350ms ease-in-out;
     position: absolute;
   }
   .content-exit {
@@ -135,6 +135,11 @@ const Flavors = styled(Classic)`
       : 'translateX(10%)'};
 `;
 
+const Product = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const Button = styled.button`
   border: 1.5px solid white;
   background: transparent;
@@ -203,11 +208,11 @@ const Pringles = () => {
           classNames="content"
           unmountOnExit
         >
-          <>
+          <Product>
             <h2>Classic</h2>
             <img src={classicPic} alt="classic" />
             <Button onClick={() => setClassic(true)}>I have good taste!</Button>
-          </>
+          </Product>
         </CSSTransition>
         <CSSTransition in={classic} timeout={700} classNames="content" unmountOnExit>
           <Content animation={classic}>
@@ -233,11 +238,11 @@ const Pringles = () => {
         classic={classic}
       >
         <CSSTransition in={!flavor} timeout={700} classNames="content" unmountOnExit>
-          <>
+          <Product>
             <h2>Flavors</h2>
             <img src={flavorPic} alt="flavor" />
             <Button onClick={() => setFlavor('flavor')}>I like bad breath!</Button>
-          </>
+          </Product>
         </CSSTransition>
         <CSSTransition in={flavor} timeout={700} classNames="content" unmountOnExit>
           <Content>
