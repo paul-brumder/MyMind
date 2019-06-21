@@ -183,10 +183,10 @@ const Pringles = () => {
   const [classic, setClassic] = useState(false);
   const [flavor, setFlavor] = useState(false);
 
-  const toggleContent = () => {
-    setClassic(!classic);
-    setFlavor(!flavor);
-  };
+  // const toggleContent = () => {
+  //   setClassic(!classic);
+  //   setFlavor(!flavor);
+  // };
 
   return (
     <Wrapper animation={choice}>

@@ -11,21 +11,11 @@ import Reveal from './Reveal';
 import { storiesOf } from '@storybook/react';
 
 storiesOf('Animation', module)
-  .add('Nav', () => (
-    <Nav />
-  ))
-  .add('Gooey', () => (
-    <Gooey />
-  ))
-  .add('SVG-Gooey', () => (
-    <SvgGooey />
-  ))
-  .add('Depth Map', () => (
-    <DepthMap />
-  ))
-  .add('Smooth Scroll + Parallax', () => (
-    <SmoothParallax />
-  ))
+  .add('Nav', () => <Nav />)
+  .add('Gooey', () => <Gooey />)
+  .add('SVG-Gooey', () => <SvgGooey />)
+  .add('Depth Map', () => <DepthMap />)
+  .add('Smooth Scroll + Parallax', () => <SmoothParallax />)
   .add('Text Fade In Up', () => (
     <>
       <GlobalStyle />
@@ -37,4 +27,4 @@ storiesOf('Animation', module)
       <GlobalStyle />
       <Reveal />
     </>
-  ))
+  ));
