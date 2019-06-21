@@ -5,6 +5,7 @@ import Gooey from './Gooey';
 import SvgGooey from './SVG-Gooey';
 import DepthMap from './DepthMap';
 import SmoothParallax from './SmoothParallax';
+import Text from './Text';
 import { storiesOf } from '@storybook/react';
 
 storiesOf('Animation', module)
@@ -22,4 +23,7 @@ storiesOf('Animation', module)
   ))
   .add('Smooth Scroll + Parallax', () => (
     <SmoothParallax />
+  ))
+  .add('Text', () => (
+    <Text />
   ))
