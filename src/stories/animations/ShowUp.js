@@ -34,11 +34,11 @@ const Wrapper = styled.div`
   span > span {
     display: block;
     transform: translate3d(0, 101%, 0);
-    /* animation: FadeInUp 1s cubic-bezier(0.78, 0.11, 0.17, 1.52) forwards; */
-    animation: FadeInUp 2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+    /* animation: ShowUp 1s cubic-bezier(0.78, 0.11, 0.17, 1.52) forwards; */
+    animation: ShowUp 2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
   }
 
-  @keyframes FadeInUp {
+  @keyframes ShowUp {
     0% {
       transform: translate3d(0, 101%, 0);
     }
@@ -48,7 +48,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const FadeInUp = () => {
+const ShowUp = () => {
   return (
     <Wrapper>
       <p>
@@ -71,4 +71,4 @@ const FadeInUp = () => {
   );
 };
 
-export default FadeInUp;
+export default ShowUp;

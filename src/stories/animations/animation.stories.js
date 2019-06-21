@@ -6,7 +6,7 @@ import Gooey from './Gooey';
 import SvgGooey from './SVG-Gooey';
 import DepthMap from './DepthMap';
 import SmoothParallax from './SmoothParallax';
-import FadeInUp from './FadeInUp';
+import ShowUp from './ShowUp';
 import Reveal from './Reveal';
 import { storiesOf } from '@storybook/react';
 
@@ -29,7 +29,7 @@ storiesOf('Animation', module)
   .add('Text Fade In Up', () => (
     <>
       <GlobalStyle />
-      <FadeInUp />
+      <ShowUp />
     </>
   ))
   .add('Text Reveal', () => (

@@ -22,6 +22,7 @@ const Wrapper = styled.div`
     overflow: hidden;
     width: fit-content;
     margin: auto;
+    font-weight: 400;
   }
 
   span {
