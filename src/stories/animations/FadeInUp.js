@@ -2,30 +2,28 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  text-align: center;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-content: center;
   flex-direction: column;
+  overflow: hidden;
+  text-align: center;
 
   p {
     font-size: 1.6rem;
     opacity: 0;
-    animation: FadeInUp .3s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+    animation: FadeInUp 0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
 
     &:nth-child(2) {
-      animation-delay: .1s;
+      animation-delay: 0.1s;
     }
     &:nth-child(3) {
-      animation-delay: .2s;
+      animation-delay: 0.2s;
     }
     &:nth-child(4) {
-      animation-delay: .3s;
+      animation-delay: 0.3s;
     }
   }
 
@@ -41,7 +39,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Text = () => {
+const FadeInUp = () => {
   return (
     <Wrapper>
       <p>Ceci est un texte fictif.</p>
@@ -52,4 +50,4 @@ const Text = () => {
   );
 };
 
-export default Text;
+export default FadeInUp;
