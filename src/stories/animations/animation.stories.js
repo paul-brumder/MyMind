@@ -1,4 +1,5 @@
 import React from 'react';
+import GlobalStyle from '../globalStyle';
 
 import Nav from './Nav';
 import Gooey from './Gooey';
@@ -26,8 +27,14 @@ storiesOf('Animation', module)
     <SmoothParallax />
   ))
   .add('Text Fade In Up', () => (
-    <FadeInUp />
+    <>
+      <GlobalStyle />
+      <FadeInUp />
+    </>
   ))
   .add('Text Reveal', () => (
-    <Reveal />
+    <>
+      <GlobalStyle />
+      <Reveal />
+    </>
   ))

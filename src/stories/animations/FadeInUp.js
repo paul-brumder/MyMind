@@ -12,29 +12,38 @@ const Wrapper = styled.div`
   text-align: center;
 
   p {
-    font-size: 1.6rem;
-    opacity: 0;
-    animation: FadeInUp 0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+    font-size: 2.2rem;
+    line-height: 1.5;
+  }
 
-    &:nth-child(2) {
-      animation-delay: 0.1s;
-    }
-    &:nth-child(3) {
+  p > span {
+    overflow: hidden;
+    display: block;
+
+    &:nth-child(2) span {
       animation-delay: 0.2s;
     }
-    &:nth-child(4) {
-      animation-delay: 0.3s;
+    &:nth-child(3) span {
+      animation-delay: 0.4s;
     }
+    &:nth-child(4) span {
+      animation-delay: 0.6s;
+    }
+  }
+
+  span > span {
+    display: block;
+    transform: translate3d(0, 101%, 0);
+    /* animation: FadeInUp 1s cubic-bezier(0.78, 0.11, 0.17, 1.52) forwards; */
+    animation: FadeInUp 2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
   }
 
   @keyframes FadeInUp {
     0% {
-      opacity: 0;
-      transform: translateY(3rem);
+      transform: translate3d(0, 101%, 0);
     }
     100% {
-      opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
   }
 `;
@@ -42,10 +51,22 @@ const Wrapper = styled.div`
 const FadeInUp = () => {
   return (
     <Wrapper>
-      <p>Ceci est un texte fictif.</p>
-      <p>Pourquoi n'ai-je donc pas utilisé le Lorem Ipsum ?</p>
-      <p>C'est pour attirer tout simplement ton attention sur ce texte inutile.</p>
-      <p>Mais pour la peine, je te souhaite une excellente journée !</p>
+      <p>
+        <span>
+          <span>Ceci est un texte fictif.</span>
+        </span>
+        <span>
+          <span>Pourquoi n'ai-je donc pas utilisé le Lorem Ipsum ?</span>
+        </span>
+        <span>
+          <span>
+            C'est pour attirer tout simplement ton attention sur ce texte inutile.
+          </span>
+        </span>
+        <span>
+          <span>Mais pour la peine, je te souhaite une excellente journée !</span>
+        </span>
+      </p>
     </Wrapper>
   );
 };
