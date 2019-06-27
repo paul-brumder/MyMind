@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 // import { CSSTransition } from 'react-transition-group';
+import shop from '../../images/shop.jpg';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -38,11 +39,13 @@ const Wrapper = styled.div`
 
   .Shop {
     grid-area: Shop;
+    place-self: center end;
   }
 
   .Header {
     grid-area: Header;
-    background: red;
+    background: url(${shop}) center center;
+    background-size: cover;
     border-radius: 3rem;
   }
 
@@ -56,7 +59,15 @@ const Wrapper = styled.div`
 
   .Products {
     grid-area: Products;
-    background: blue;
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    column-gap: 4rem;
+    padding: 0 1rem;
+    text-align: center;
+
+    & > div {
+      padding: 1rem;
+    }
   }
 `;
 
@@ -92,7 +103,32 @@ const Products = () => {
       <div className="Header" />
       <div className="Filter">Filter</div>
       <div className="Search" />
-      <div className="Products" />
+      <div className="Products">
+        <div>
+          <h3>Coffee 3</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ipsum
+            natus quod illum eaque velit! Optio magni adipisci quisquam doloremque.
+            Natus tenetur fuga earum quam deserunt corporis modi distinctio sequi.
+          </p>
+        </div>
+        <div>
+          <h3>Coffee 2</h3>
+          <p>
+            Ea, quidem numquam doloribus incidunt ipsum rem veniam odio adipisci
+            reiciendis delectus eos magnam sunt. Placeat beatae est quod quam saepe.
+            Praesentium fugiat sunt impedit qui maxime blanditiis sed nisi?
+          </p>
+        </div>
+        <div>
+          <h3>Coffee 3</h3>
+          <p>
+            Ea iure soluta, minus unde vel nulla, harum enim est sint distinctio
+            odio, voluptates illo eum rem quasi omnis non obcaecati hic magni
+            repellat cum laborum dolor sed. Error, ex!
+          </p>
+        </div>
+      </div>
     </Wrapper>
   );
 };
