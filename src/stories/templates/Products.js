@@ -88,9 +88,9 @@ const Products = () => {
           <li>Contact</li>
         </ul>
       </div>
-      <div className="Shop" />
+      <div className="Shop">Buy</div>
       <div className="Header" />
-      <div className="Filter" />
+      <div className="Filter">Filter</div>
       <div className="Search" />
       <div className="Products" />
     </Wrapper>
