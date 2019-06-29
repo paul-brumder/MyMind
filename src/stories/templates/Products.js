@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { auto } from 'eol';
 // import { CSSTransition } from 'react-transition-group';
 import shop from '../../images/shop.jpg';
 import shop1 from '../../images/shop1.jpg';
@@ -24,6 +25,19 @@ const Wrapper = styled.div`
     'Header Header Header Header'
     'Filter Search Search Search'
     'Filter Products Products Products';
+
+  p,
+  li {
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
 
   .Title {
     grid-area: Title;
@@ -52,7 +66,7 @@ const Wrapper = styled.div`
     grid-area: Header;
     background: url(${shop}) center center;
     background-size: cover;
-    border-radius: 3rem;
+    border-radius: 2rem;
   }
 
   .Filter {
@@ -61,7 +75,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding-top: 1rem;
+    padding-top: 2rem;
 
     input {
       margin: 1rem;
@@ -84,6 +98,13 @@ const Wrapper = styled.div`
 
     & > div {
       padding: 1rem;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 2rem;
+      object-fit: cover;
+      height: 150px;
     }
   }
 `;
@@ -135,6 +156,7 @@ const Products = () => {
       <div className="Search" />
       <div className="Products">
         <div>
+          <img src={shop1} alt="shop1" />
           <h3>Coffee 1</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ipsum
@@ -143,6 +165,7 @@ const Products = () => {
           </p>
         </div>
         <div>
+          <img src={shop2} alt="shop2" />
           <h3>Coffee 2</h3>
           <p>
             Ea, quidem numquam doloribus incidunt ipsum rem veniam odio adipisci
@@ -151,6 +174,7 @@ const Products = () => {
           </p>
         </div>
         <div>
+          <img src={shop3} alt="shop3" />
           <h3>Coffee 3</h3>
           <p>
             Ea iure soluta, minus unde vel nulla, harum enim est sint distinctio
@@ -159,6 +183,7 @@ const Products = () => {
           </p>
         </div>
         <div>
+          <img src={shop4} alt="shop4" />
           <h3>Coffee 4</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ipsum
@@ -167,6 +192,7 @@ const Products = () => {
           </p>
         </div>
         <div>
+          <img src={shop5} alt="shop5" />
           <h3>Coffee 5</h3>
           <p>
             Ea, quidem numquam doloribus incidunt ipsum rem veniam odio adipisci
@@ -175,6 +201,7 @@ const Products = () => {
           </p>
         </div>
         <div>
+          <img src={shop6} alt="shop6" />
           <h3>Coffee 6</h3>
           <p>
             Ea iure soluta, minus unde vel nulla, harum enim est sint distinctio
