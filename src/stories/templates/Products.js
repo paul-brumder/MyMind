@@ -15,8 +15,8 @@ const Wrapper = styled.div`
   left: 0;
   top: 0;
   height: 100vh;
-  width: calc(100vw - 6rem);
-  margin: 0 3rem;
+  width: calc(100vw - 8rem);
+  margin: 0 4rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 4fr 1fr minmax(0%, 25%);
@@ -73,12 +73,26 @@ const Wrapper = styled.div`
     grid-area: Filter;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
     padding-top: 2rem;
 
     input {
-      margin: 1rem;
+      margin: 0 2rem 0 0;
+      float: right;
+    }
+
+    [type='checkbox']:not(:checked) + label:before,
+    [type='checkbox']:checked + label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 17px;
+      height: 17px; /* dim. de la case */
+      border: 1px solid #aaa;
+      background: #f8f8f8;
+      border-radius: 3px; /* angles arrondis */
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3); /* légère ombre interne */
     }
   }
 
@@ -111,17 +125,16 @@ const Wrapper = styled.div`
 
 const Button = styled.button`
   border: 1.5px solid white;
-  background: transparent;
-  padding: 1rem 3rem;
-  color: white;
+  background: #f8ef90;
+  padding: 1rem 2.5rem;
+  color: #444;
   border-radius: 5rem;
-  font-weight: 700;
   transition: all 350ms ease-in-out;
   position: relative;
 
   &:hover {
-    background: white;
-    color: #555;
+    background: #824e46;
+    color: white;
   }
 `;
 
@@ -137,21 +150,33 @@ const Products = () => {
           <li>Contact</li>
         </ul>
       </div>
-      <div className="Shop">Buy</div>
+      <div className="Shop">
+        <Button>Buy</Button>
+      </div>
       <div className="Header" />
       <div className="Filter">
         <h2>Find your flavor</h2>
         <h3>Filter by:</h3>
-        <input type="checkbox" value="item1" name="coffee" />
-        <label htmlFor="item1">item</label>
-        <input type="checkbox" value="item2" name="coffee" />
-        <label htmlFor="item2">item</label>
-        <input type="checkbox" value="item3" name="coffee" />
-        <label htmlFor="item3">item</label>
-        <input type="checkbox" value="item4" name="coffee" />
-        <label htmlFor="item4">item</label>
-        <input type="checkbox" value="item5" name="coffee" />
-        <label htmlFor="item5">item</label>
+        <div>
+          <input type="checkbox" value="item1" name="coffee" />
+          <label htmlFor="item1">item</label>
+        </div>
+        <div>
+          <input type="checkbox" value="item2" name="coffee" />
+          <label htmlFor="item2">item</label>
+        </div>
+        <div>
+          <input type="checkbox" value="item3" name="coffee" />
+          <label htmlFor="item3">item</label>
+        </div>
+        <div>
+          <input type="checkbox" value="item4" name="coffee" />
+          <label htmlFor="item4">item</label>
+        </div>
+        <div>
+          <input type="checkbox" value="item5" name="coffee" />
+          <label htmlFor="item5">item</label>
+        </div>
       </div>
       <div className="Search" />
       <div className="Products">
