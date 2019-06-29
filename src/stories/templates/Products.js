@@ -88,11 +88,11 @@ const Wrapper = styled.div`
       left: 0;
       top: 2px;
       width: 17px;
-      height: 17px; /* dim. de la case */
+      height: 17px;
       border: 1px solid #aaa;
       background: #f8f8f8;
-      border-radius: 3px; /* angles arrondis */
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3); /* légère ombre interne */
+      border-radius: 3px;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
     }
   }
 
