@@ -81,6 +81,20 @@ const Wrapper = styled.div`
       float: right;
     }
 
+    [type='checkbox']:not(:checked),
+    [type='checkbox']:checked {
+      position: absolute;
+      left: -9999px;
+    }
+
+    /* on prépare le label */
+    [type='checkbox']:not(:checked) + label,
+    [type='checkbox']:checked + label {
+      position: relative; /* permet de positionner les pseudo-éléments */
+      padding-left: 25px; /* fait un peu d'espace pour notre case à venir */
+      cursor: pointer; /* affiche un curseur adapté */
+    }
+
     [type='checkbox']:not(:checked) + label:before,
     [type='checkbox']:checked + label:before {
       content: '';
@@ -93,6 +107,48 @@ const Wrapper = styled.div`
       background: #f8f8f8;
       border-radius: 3px;
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    [type='checkbox']:not(:checked) + label:after,
+    [type='checkbox']:checked + label:after {
+      content: '✔';
+      position: absolute;
+      top: 0;
+      left: 4px;
+      font-size: 14px;
+      color: #09ad7e;
+      transition: all 0.2s; /* on prévoit une animation */
+    }
+    /* Aspect si "pas cochée" */
+    [type='checkbox']:not(:checked) + label:after {
+      opacity: 0; /* coche invisible */
+      transform: scale(0); /* mise à l'échelle à 0 */
+    }
+    /* Aspect si "cochée" */
+    [type='checkbox']:checked + label:after {
+      opacity: 1; /* coche opaque */
+      transform: scale(1); /* mise à l'échelle 1:1 */
+    }
+
+    [type='checkbox']:disabled:not(:checked) + label:before,
+    [type='checkbox']:disabled:checked + label:before {
+      box-shadow: none;
+      border-color: #bbb;
+      background-color: #ddd;
+    }
+    /* styles de la coche (si cochée/désactivée) */
+    [type='checkbox']:disabled:checked + label:after {
+      color: #999;
+    }
+    /* on style aussi le label quand désactivé */
+    [type='checkbox']:disabled + label {
+      color: #aaa;
+    }
+
+    /* aspect au focus de l'élément */
+    [type='checkbox']:checked:focus + label:before,
+    [type='checkbox']:not(:checked):focus + label:before {
+      border: 1px dotted blue;
     }
   }
 
@@ -158,23 +214,23 @@ const Products = () => {
         <h2>Find your flavor</h2>
         <h3>Filter by:</h3>
         <div>
-          <input type="checkbox" value="item1" name="coffee" />
+          <input type="checkbox" id="item1" name="coffee" />
           <label htmlFor="item1">item</label>
         </div>
         <div>
-          <input type="checkbox" value="item2" name="coffee" />
+          <input type="checkbox" id="item2" name="coffee" />
           <label htmlFor="item2">item</label>
         </div>
         <div>
-          <input type="checkbox" value="item3" name="coffee" />
+          <input type="checkbox" id="item3" name="coffee" />
           <label htmlFor="item3">item</label>
         </div>
         <div>
-          <input type="checkbox" value="item4" name="coffee" />
+          <input type="checkbox" id="item4" name="coffee" />
           <label htmlFor="item4">item</label>
         </div>
         <div>
-          <input type="checkbox" value="item5" name="coffee" />
+          <input type="checkbox" id="item5" name="coffee" />
           <label htmlFor="item5">item</label>
         </div>
       </div>
