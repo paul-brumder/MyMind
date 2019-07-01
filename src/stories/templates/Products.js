@@ -185,8 +185,7 @@ const Products = () => {
           <h3>Coffee 1</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ipsum
-            natus quod illum eaque velit! Optio magni adipisci quisquam doloremque.
-            Natus tenetur fuga earum quam deserunt corporis modi distinctio sequi.
+            natus quod illum eaque velit!
           </p>
         </div>
         <div>
@@ -194,8 +193,7 @@ const Products = () => {
           <h3>Coffee 2</h3>
           <p>
             Ea, quidem numquam doloribus incidunt ipsum rem veniam odio adipisci
-            reiciendis delectus eos magnam sunt. Placeat beatae est quod quam saepe.
-            Praesentium fugiat sunt impedit qui maxime blanditiis sed nisi?
+            reiciendis delectus eos magnam sunt.
           </p>
         </div>
         <div>
@@ -203,8 +201,7 @@ const Products = () => {
           <h3>Coffee 3</h3>
           <p>
             Ea iure soluta, minus unde vel nulla, harum enim est sint distinctio
-            odio, voluptates illo eum rem quasi omnis non obcaecati hic magni
-            repellat cum laborum dolor sed. Error, ex!
+            odio, voluptates illo eum.
           </p>
         </div>
         <div>
@@ -212,8 +209,7 @@ const Products = () => {
           <h3>Coffee 4</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ipsum
-            natus quod illum eaque velit! Optio magni adipisci quisquam doloremque.
-            Natus tenetur fuga earum quam deserunt corporis modi distinctio sequi.
+            natus quod illum eaque velit!
           </p>
         </div>
         <div>
@@ -221,8 +217,7 @@ const Products = () => {
           <h3>Coffee 5</h3>
           <p>
             Ea, quidem numquam doloribus incidunt ipsum rem veniam odio adipisci
-            reiciendis delectus eos magnam sunt. Placeat beatae est quod quam saepe.
-            Praesentium fugiat sunt impedit qui maxime blanditiis sed nisi?
+            reiciendis delectus eos magnam sunt.
           </p>
         </div>
         <div>
@@ -230,8 +225,7 @@ const Products = () => {
           <h3>Coffee 6</h3>
           <p>
             Ea iure soluta, minus unde vel nulla, harum enim est sint distinctio
-            odio, voluptates illo eum rem quasi omnis non obcaecati hic magni
-            repellat cum laborum dolor sed. Error, ex!
+            odio, voluptates illo eum rem quasi omnis.
           </p>
         </div>
       </div>
