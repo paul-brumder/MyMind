@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { relative } from 'path';
 import { auto } from 'eol';
 // import { CSSTransition } from 'react-transition-group';
 import shop from '../../images/shop.jpg';
@@ -154,6 +155,24 @@ const Wrapper = styled.div`
 
   .Search {
     grid-area: Search;
+    align-self: center;
+    position: relative;
+
+    input {
+      padding: 1rem 3rem;
+      border-radius: 1rem;
+      border: none;
+      width: 100%;
+      box-sizing: border-box;
+      background: #f8f8f8;
+    }
+
+    i {
+      position: absolute;
+      top: 1.2rem;
+      left: 1rem;
+      font-size: 1.2rem;
+    }
   }
 
   .Products {
@@ -234,7 +253,10 @@ const Products = () => {
           <label htmlFor="item5">item</label>
         </div>
       </div>
-      <div className="Search" />
+      <div className="Search">
+        <i className="fas fa-search" />
+        <input placeholder="What do you want !?" type="text" />
+      </div>
       <div className="Products">
         <div>
           <img src={shop1} alt="shop1" />
