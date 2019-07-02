@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { relative } from 'path';
 import { auto } from 'eol';
 // import { CSSTransition } from 'react-transition-group';
-import shop from '../../images/shop.jpg';
+import shop from '../../images/shop-draw.jpg';
 import shop1 from '../../images/shop1.jpg';
 import shop2 from '../../images/shop2.jpg';
 import shop3 from '../../images/shop3.jpg';
@@ -32,8 +32,12 @@ const Wrapper = styled.div`
     font-size: 1.2rem;
   }
 
+  h1 {
+    font-size: 3rem;
+  }
+
   h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   h3 {
@@ -65,9 +69,31 @@ const Wrapper = styled.div`
 
   .Header {
     grid-area: Header;
-    background: url(${shop}) center center;
-    background-size: cover;
+    /* background: url(${shop}) center center; */
+    /* background-size: cover; */
+    background: #fcd7cd;
     border-radius: 2rem;
+    position: relative;
+    overflow: hidden;
+
+    div {
+      width: 35%;
+      z-index: 10;
+      box-sizing: border-box;
+      padding: 0 2rem 0 8rem;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    img {
+      height: 100%;
+      position: absolute;
+      right: 8rem;
+      top: 0;
+      transform: scale(1.5);
+    }
   }
 
   .Filter {
@@ -216,7 +242,7 @@ const Button = styled.button`
 const Products = () => {
   return (
     <Wrapper>
-      <div className="Title">Coffee</div>
+      <div className="Title">NoSleep</div>
       <div className="Menu">
         <ul>
           <li>Shop</li>
@@ -226,11 +252,27 @@ const Products = () => {
         </ul>
       </div>
       <div className="Shop">
-        <Button>Buy</Button>
+        <i class="fas fa-store" />
       </div>
-      <div className="Header" />
+      <div className="Header">
+        <div>
+          <h1>
+            More
+            <br />
+            Energy
+          </h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem eos amet
+            mollitia, explicabo nostrum itaque praesentium neque, asperiores eius earum
+            culpa quasi modi non molestias optio sit? Nesciunt, placeat magnam.
+          </p>
+        </div>
+        <img src={shop} alt="shop" />
+      </div>
       <div className="Filter">
-        <h2>Find your flavor</h2>
+        <h2>
+          Coffees <i class="fas fa-coffee" />
+        </h2>
         <h3>Filter by:</h3>
         <div>
           <input type="checkbox" id="item1" name="coffee" />
