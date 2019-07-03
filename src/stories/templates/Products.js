@@ -253,6 +253,8 @@ const Products = () => {
       </div>
       <div className="Shop">
         <i class="fas fa-store" />
+        <span>Log in</span>
+        <button>Sign Up</button>
       </div>
       <div className="Header">
         <div>
@@ -262,9 +264,9 @@ const Products = () => {
             Energy
           </h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem eos amet
-            mollitia, explicabo nostrum itaque praesentium neque, asperiores eius earum
-            culpa quasi modi non molestias optio sit? Nesciunt, placeat magnam.
+            Find the best ways to stay active, like drinking every coffees we sell.
+            We even have intravenous solution to be more productive. Being a zombie
+            will suits you !
           </p>
         </div>
         <img src={shop} alt="shop" />
@@ -276,23 +278,23 @@ const Products = () => {
         <h3>Filter by:</h3>
         <div>
           <input type="checkbox" id="item1" name="coffee" />
-          <label htmlFor="item1">item</label>
+          <label htmlFor="item1">Dark Coffee</label>
         </div>
         <div>
           <input type="checkbox" id="item2" name="coffee" />
-          <label htmlFor="item2">item</label>
+          <label htmlFor="item2">Sugar Daddy</label>
         </div>
         <div>
           <input type="checkbox" id="item3" name="coffee" />
-          <label htmlFor="item3">item</label>
+          <label htmlFor="item3">John Coffee</label>
         </div>
         <div>
           <input type="checkbox" id="item4" name="coffee" />
-          <label htmlFor="item4">item</label>
+          <label htmlFor="item4">Red Bull w/ Coffee</label>
         </div>
         <div>
           <input type="checkbox" id="item5" name="coffee" />
-          <label htmlFor="item5">item</label>
+          <label htmlFor="item5">The Intravenous One</label>
         </div>
       </div>
       <div className="Search">
