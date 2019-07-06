@@ -112,11 +112,17 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 2rem;
+    padding: 2rem 3rem 0 0;
 
     div {
       display: flex;
-      padding: 1rem 3rem 1rem 0;
+      padding: 1rem 0;
+    }
+
+    span {
+      float: right;
+      color: #EF9A9A;
+      font-size: 1rem;
     }
 
     [type='checkbox']:not(:checked),
@@ -209,6 +215,7 @@ const Wrapper = styled.div`
       max-width: 60%;
       box-sizing: border-box;
       background: #f8f8f8;
+      outline: none;
     }
 
     i {
@@ -303,7 +310,7 @@ const Products = () => {
         <h2>
           Coffees <i class="fas fa-coffee" />
         </h2>
-        <h3>Filter by:</h3>
+        <h3>Filter by: <span>Clear filter</span></h3>
         <div>
           <input type="checkbox" id="item1" name="coffee" />
           <label htmlFor="item1">Dark Coffee</label>
