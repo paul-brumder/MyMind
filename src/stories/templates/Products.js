@@ -16,8 +16,8 @@ const Wrapper = styled.div`
   left: 0;
   top: 0;
   height: 100vh;
-  width: calc(100vw - 8rem);
-  margin: 0 4rem;
+  width: calc(100vw - 12rem);
+  margin: 0 6rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 4fr 1fr minmax(0%, 25%);
@@ -53,17 +53,20 @@ const Wrapper = styled.div`
 
   .Menu {
     grid-area: Menu;
-    align-self: center;
+    place-self: center start;
 
     ul {
       width: 100%;
       padding: 0;
       display: inline-flex;
-      justify-content: space-around;
     }
 
     li:nth-child(1) {
       font-weight: 700;
+    }
+
+    li {
+      padding-right: 5vw;
     }
   }
 
@@ -86,7 +89,7 @@ const Wrapper = styled.div`
     overflow: hidden;
 
     div {
-      width: 35%;
+      width: 30%;
       z-index: 10;
       box-sizing: border-box;
       padding: 0 2rem 0 8rem;
@@ -94,12 +97,13 @@ const Wrapper = styled.div`
       display: flex;
       flex-direction: column;
       height: 100%;
+      position: relative;
     }
 
     img {
       height: 100%;
       position: absolute;
-      right: 8rem;
+      right: 10%;
       top: 0;
       transform: scale(1.5);
     }
@@ -112,9 +116,9 @@ const Wrapper = styled.div`
     justify-content: space-between;
     padding-top: 2rem;
 
-    input {
-      margin: 0 2rem 0 0;
-      float: right;
+    div {
+      display: flex;
+      padding: 1rem 3rem 1rem 0;
     }
 
     [type='checkbox']:not(:checked),
@@ -127,7 +131,7 @@ const Wrapper = styled.div`
     [type='checkbox']:not(:checked) + label,
     [type='checkbox']:checked + label {
       position: relative; /* permet de positionner les pseudo-éléments */
-      padding-left: 25px; /* fait un peu d'espace pour notre case à venir */
+      width: 100%;
       cursor: pointer; /* affiche un curseur adapté */
     }
 
@@ -135,14 +139,17 @@ const Wrapper = styled.div`
     [type='checkbox']:checked + label:before {
       content: '';
       position: absolute;
-      left: 0;
-      top: 2px;
+      right: 0;
       width: 17px;
       height: 17px;
-      border: 1px solid #aaa;
       background: #f8f8f8;
       border-radius: 3px;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+      transition: background 0.2s;
+      /* box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3); */
+    }
+
+    [type='checkbox']:checked + label:before {
+      background: #555;
     }
 
     [type='checkbox']:not(:checked) + label:after,
@@ -150,10 +157,11 @@ const Wrapper = styled.div`
       content: '✔';
       position: absolute;
       top: 0;
-      left: 4px;
-      font-size: 14px;
-      color: #09ad7e;
-      transition: all 0.2s; /* on prévoit une animation */
+      right: 4px;
+      font-size: 12px;
+      color: white;
+      /* background: #555; */
+      transition: all 0.4s; /* on prévoit une animation */
     }
     /* Aspect si "pas cochée" */
     [type='checkbox']:not(:checked) + label:after {
@@ -182,10 +190,10 @@ const Wrapper = styled.div`
     }
 
     /* aspect au focus de l'élément */
-    [type='checkbox']:checked:focus + label:before,
+    /* [type='checkbox']:checked:focus + label:before,
     [type='checkbox']:not(:checked):focus + label:before {
       border: 1px dotted blue;
-    }
+    } */
   }
 
   .Search {
