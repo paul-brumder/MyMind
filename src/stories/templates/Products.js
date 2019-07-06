@@ -312,7 +312,7 @@ const Products = () => {
         </h2>
         <h3>Filter by: <span>Clear filter</span></h3>
         <div>
-          <input type="checkbox" id="item1" name="coffee" />
+          <input type="checkbox" id="item1" name="coffee" checked />
           <label htmlFor="item1">Dark Coffee</label>
         </div>
         <div>
