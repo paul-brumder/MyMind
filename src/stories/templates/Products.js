@@ -25,6 +25,15 @@ const Wrapper = styled.div`
     'Filter Search Search Search'
     'Filter Products Products Products';
 
+  @media only screen and (max-width: 500px) {
+    width: calc(100vw - 4rem);
+    margin: 0 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 4fr 1fr 1fr minmax(0%,25%);
+    grid-template-areas: 'Title Title Title Title' 'Menu Menu Shop Shop' 'Header Header Header Header' 'Search Search Search Search' 'Filter Filter Filter Filter' 'Products Products Products Products';
+    grid-row-gap: 3rem;
+  }
+
   p,
   li,
   button {
@@ -47,6 +56,11 @@ const Wrapper = styled.div`
     grid-area: Title;
     place-self: center start;
     font-size: 2.5rem;
+
+    @media only screen and (max-width: 500px) {
+      margin: auto;
+      padding-top: 2rem;
+    }
   }
 
   .Menu {
@@ -85,6 +99,7 @@ const Wrapper = styled.div`
     border-radius: 2rem;
     position: relative;
     overflow: hidden;
+    height: min-content;
 
     div {
       width: 30%;
@@ -104,6 +119,22 @@ const Wrapper = styled.div`
       right: 10%;
       top: 0;
       transform: scale(1.5);
+    }
+
+    @media only screen and (max-width: 500px) {
+      div {
+        width: 100%;
+        padding: 4rem 5rem 0 5rem;
+        position: relative;
+        text-align: center;
+      }
+      
+      img {
+        width: 100%;
+        position: relative;
+        right: 0;
+        transform: scale(1);
+      }
     }
   }
 
