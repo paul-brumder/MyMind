@@ -128,7 +128,7 @@ const Wrapper = styled.div`
       font-size: 1rem;
     }
 
-    i {
+    div>i {
       position: absolute;
       right: 0.3rem;
       font-size: 1.2rem;
