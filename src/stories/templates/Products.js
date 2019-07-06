@@ -99,7 +99,6 @@ const Wrapper = styled.div`
     border-radius: 2rem;
     position: relative;
     overflow: hidden;
-    height: min-content;
 
     div {
       width: 30%;
@@ -122,6 +121,8 @@ const Wrapper = styled.div`
     }
 
     @media only screen and (max-width: 500px) {
+      height: max-content;
+
       div {
         width: 100%;
         padding: 4rem 5rem 0 5rem;
