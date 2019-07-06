@@ -28,7 +28,8 @@ const Wrapper = styled.div`
     'Filter Products Products Products';
 
   p,
-  li {
+  li,
+  button {
     font-size: 1.2rem;
   }
 
@@ -60,11 +61,19 @@ const Wrapper = styled.div`
       display: inline-flex;
       justify-content: space-around;
     }
+
+    li:nth-child(1) {
+      font-weight: 700;
+    }
   }
 
   .Shop {
     grid-area: Shop;
     place-self: center end;
+
+    span {
+      padding: 0 2rem;
+    }
   }
 
   .Header {
@@ -227,7 +236,7 @@ const Wrapper = styled.div`
 const Button = styled.button`
   border: 1.5px solid white;
   background: #f8ef90;
-  padding: 1rem 2.5rem;
+  padding: 1rem 2rem;
   color: #444;
   border-radius: 5rem;
   transition: all 350ms ease-in-out;
@@ -237,6 +246,10 @@ const Button = styled.button`
     background: #824e46;
     color: white;
   }
+`;
+
+const Bag = styled(Button)`
+  padding: 0.8rem;
 `;
 
 const Products = () => {
@@ -252,9 +265,9 @@ const Products = () => {
         </ul>
       </div>
       <div className="Shop">
-        <i class="fas fa-store" />
+        <Bag><i class="fas fa-store" /></Bag>
         <span>Log in</span>
-        <button>Sign Up</button>
+        <Button>Sign Up</Button>
       </div>
       <div className="Header">
         <div>
@@ -266,7 +279,7 @@ const Products = () => {
           <p>
             Find the best ways to stay active, like drinking every coffees we sell.
             We even have intravenous solution to be more productive. Being a zombie
-            will suits you !
+            will suit you !
           </p>
         </div>
         <img src={shop} alt="shop" />
