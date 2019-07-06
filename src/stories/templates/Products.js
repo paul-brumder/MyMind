@@ -117,12 +117,21 @@ const Wrapper = styled.div`
     div {
       display: flex;
       padding: 1rem 0;
+      position: relative;
+      align-items: center;
+      height: 2.5rem;
     }
 
     span {
       float: right;
       color: #EF9A9A;
       font-size: 1rem;
+    }
+
+    i {
+      position: absolute;
+      right: 0.3rem;
+      font-size: 1.2rem;
     }
 
     [type='checkbox']:not(:checked),
@@ -330,6 +339,14 @@ const Products = () => {
         <div>
           <input type="checkbox" id="item5" name="coffee" />
           <label htmlFor="item5">The Intravenous One</label>
+        </div>
+        <div>
+          <h3>Flavors</h3>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div>
+          <h3>Size</h3>
+          <i class="fas fa-plus"></i>
         </div>
       </div>
       <div className="Search">
