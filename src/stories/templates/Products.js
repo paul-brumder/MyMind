@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { relative } from 'path';
-import { auto } from 'eol';
 // import { CSSTransition } from 'react-transition-group';
 import shop from '../../images/shop-draw.jpg';
 import shop1 from '../../images/shop1.jpg';
@@ -200,12 +198,15 @@ const Wrapper = styled.div`
     grid-area: Search;
     align-self: center;
     position: relative;
+    display: inline-flex;
+    justify-content: space-between;
 
     input {
       padding: 1rem 3rem;
       border-radius: 1rem;
       border: none;
       width: 100%;
+      max-width: 60%;
       box-sizing: border-box;
       background: #f8f8f8;
     }
@@ -215,6 +216,12 @@ const Wrapper = styled.div`
       top: 1.2rem;
       left: 1rem;
       font-size: 1.2rem;
+    }
+
+    button i {
+      position: relative;
+      top: 0;
+      left: .5rem;
     }
   }
 
@@ -307,7 +314,7 @@ const Products = () => {
         </div>
         <div>
           <input type="checkbox" id="item3" name="coffee" />
-          <label htmlFor="item3">John Coffee</label>
+          <label htmlFor="item3">John Coffey</label>
         </div>
         <div>
           <input type="checkbox" id="item4" name="coffee" />
@@ -321,6 +328,7 @@ const Products = () => {
       <div className="Search">
         <i className="fas fa-search" />
         <input placeholder="What do you want !?" type="text" />
+        <Button>Sort by: Newest <i class="fas fa-angle-down"></i></Button>
       </div>
       <div className="Products">
         <div>
