@@ -283,6 +283,10 @@ const Wrapper = styled.div`
     padding: 0 1rem;
     text-align: center;
 
+    @media only screen and (max-width: 500px) {
+      grid-template-columns: 1fr
+    }
+
     & > div {
       padding: 1rem;
     }
