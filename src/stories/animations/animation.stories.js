@@ -8,6 +8,7 @@ import DepthMap from './DepthMap';
 import SmoothParallax from './SmoothParallax';
 import ShowUp from './ShowUp';
 import Reveal from './Reveal';
+import Sandglass from './Sandglass';
 import { storiesOf } from '@storybook/react';
 
 storiesOf('Animation', module)
@@ -26,5 +27,11 @@ storiesOf('Animation', module)
     <>
       <GlobalStyle />
       <Reveal />
+    </>
+  ))
+  .add('Sandglass Card', () => (
+    <>
+      <GlobalStyle />
+      <Sandglass />
     </>
   ));
