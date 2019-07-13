@@ -42,6 +42,28 @@ const Top = styled.div`
   border-radius: 1rem;
   overflow: hidden;
   border: white 2px solid;
+  position: relative;
+
+  div {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    bottom: -12%;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    background: red;
+    transform: scale(2.5);
+    transform-origin: bottom;
+    animation: top 10s ease-in-out infinite;
+
+    @keyframes top {
+      0% {
+        transform: scale(2.2);
+      }
+      100% {
+        transform: scale(0);
+      }
+    }
+  }
 
   p {
     margin: 0;
@@ -52,8 +74,48 @@ const Bottom = styled(Top)`
   background: #666;
   clip-path: polygon(40% 0, 60% 0, 100% 100%, 0% 100%);
   clip-path: polygon(40% 0, 60% 0, 100% 50%, 100% 100%, 0 100%, 0 50%);
-  color: wheat;
+  color: #f0deb4;
   margin-top: -1%;
+  display: flex;
+  flex-direction: column;
+
+  div {
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    transform: scale(0);
+    bottom: 0;
+    transform-origin: bottom;
+    animation: bottom 10s ease-in-out infinite;
+
+    @keyframes bottom {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(2.2);
+      }
+    }
+  }
+
+  p {
+    padding-top: 5rem;
+  }
+
+  button {
+    border: none;
+    background: #f0deb4;
+    font-size: 1.2rem;
+    /* border-radius: 1rem; */
+    padding: 0.75rem 2.5rem;
+    color: #555;
+    transition: all 350ms ease-in-out;
+    position: relative;
+    margin-top: 2rem;
+
+    &:hover {
+      background: white;
+      color: #555;
+    }
+  }
 `;
 
 const Sandglass = () => {
@@ -61,10 +123,13 @@ const Sandglass = () => {
     <Wrapper>
       <Card>
         <Top>
-          <p>Test Top</p>
+          <div />
+          <p>Projects</p>
         </Top>
         <Bottom>
-          <p>Test Bottom</p>
+          <div />
+          <p>Experimentations</p>
+          <button>Show me!</button>
         </Bottom>
       </Card>
     </Wrapper>
