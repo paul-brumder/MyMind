@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   align-items: center;
   overflow: hidden;
   text-align: center;
+  background: grey;
 
   @keyframes Flow {
   }
@@ -20,6 +21,9 @@ const Wrapper = styled.div`
 const Card = styled.div`
   height: 50vh;
   width: 20vw;
+  background: white;
+  border-radius: 10rem;
+  font-size: 1.5rem;
 `;
 
 const Top = styled.div`
@@ -27,7 +31,12 @@ const Top = styled.div`
   justify-content: center;
   align-items: center;
   background: #f0deb4;
-  height: 50%;
+  height: 51%;
+  margin-top: -1%;
+  clip-path: polygon(0 0, 100% 0, 60% 100%, 40% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 60% 100%, 40% 100%, 0 50%);
+  color: #555;
+  border-radius: 1rem;
 
   p {
     margin: 0;
@@ -36,6 +45,10 @@ const Top = styled.div`
 
 const Bottom = styled(Top)`
   background: #666;
+  clip-path: polygon(40% 0, 60% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(40% 0, 60% 0, 100% 50%, 100% 100%, 0 100%, 0 50%);
+  color: wheat;
+  margin-top: 0;
 `;
 
 const Sandglass = () => {
