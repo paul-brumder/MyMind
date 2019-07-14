@@ -33,12 +33,12 @@ const Top = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f0deb4;
+  background: #666;
   height: 51%;
   margin-top: -3%;
   clip-path: polygon(0 0, 100% 0, 60% 100%, 40% 100%);
   clip-path: polygon(0 0, 100% 0, 100% 50%, 60% 100%, 40% 100%, 0 50%);
-  color: #555;
+  color: #f0deb4;
   border-radius: 1rem;
   overflow: hidden;
   border: white 2px solid;
@@ -50,10 +50,10 @@ const Top = styled.div`
     height: 50%;
     bottom: -12%;
     clip-path: polygon(0 0, 50% 100%, 100% 0);
-    background: red;
-    transform: scale(2.5);
+    background: #f0deb4;
+    transform: scale(2.1);
     transform-origin: bottom;
-    animation: top 10s ease-in-out infinite;
+    animation: top 10s linear infinite;
 
     @keyframes top {
       0% {
@@ -84,7 +84,7 @@ const Bottom = styled(Top)`
     transform: scale(0);
     bottom: 0;
     transform-origin: bottom;
-    animation: bottom 10s ease-in-out infinite;
+    animation: bottom 10s ease-out infinite;
 
     @keyframes bottom {
       0% {
@@ -124,7 +124,7 @@ const Sandglass = () => {
       <Card>
         <Top>
           <div />
-          <p>Projects</p>
+          <h2>Projects</h2>
         </Top>
         <Bottom>
           <div />
