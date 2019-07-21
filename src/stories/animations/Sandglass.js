@@ -51,9 +51,9 @@ const Top = styled.div`
     bottom: -12%;
     clip-path: polygon(0 0, 50% 100%, 100% 0);
     background: #f0deb4;
-    transform: scale(2.1);
+    transform: scale(2.2);
     transform-origin: bottom;
-    animation: top 10s linear infinite;
+    animation: top 10s 1s linear infinite;
 
     @keyframes top {
       0% {
@@ -81,10 +81,13 @@ const Bottom = styled(Top)`
 
   div {
     clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    /* clip-path: polygon(30% 0, 70% 1%, 100% 100%, 0% 100%); */
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
     transform: scale(0);
     bottom: 0;
     transform-origin: bottom;
-    animation: bottom 10s ease-out infinite;
+    animation: bottom 10s 1s ease-out infinite;
 
     @keyframes bottom {
       0% {
