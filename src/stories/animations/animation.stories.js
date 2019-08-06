@@ -37,4 +37,3 @@ storiesOf('Animation', module)
     </>
   ))
   .add('Image Wave', () => <ImageWave />);
-  ));
