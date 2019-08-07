@@ -31,7 +31,7 @@ const ImageWave = () => {
 
       // New ripple each time mouseenter
       renderer.view.addEventListener(
-        'mouseenter',
+        'pointerenter',
         function(ev) {
           ripples.push(new Ripple(ev.clientX, ev.clientY));
           stage.filters = ripples.map(function(f) {
