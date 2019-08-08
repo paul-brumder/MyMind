@@ -36,7 +36,7 @@ const DepthMap = () => {
     const displacementFilter = new PIXI.filters.DisplacementFilter(depthMap);
     app.stage.filters = [displacementFilter];
 
-    window.onmousemove = function (e) {
+    window.onpointermove = function(e) {
       displacementFilter.scale.x = (width / 2 - e.clientX) / 20;
       displacementFilter.scale.y = (height / 2 - e.clientY) / 20;
     };
