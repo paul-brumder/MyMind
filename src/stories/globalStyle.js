@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Chivo', sans-serif;
   }
 
+  body {
+    margin: 0;
+  }
+
   button {
     outline: none;
   }
