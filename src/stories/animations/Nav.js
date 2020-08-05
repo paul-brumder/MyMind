@@ -52,9 +52,9 @@ const Wrapper = styled.div`
 const Nav = () => {
   return (
     <Wrapper>
-      <a href="#">Manger</a>
-      <a href="#">Manger</a>
-      <a href="#">Manger</a>
+      <a href="#">Climbing</a>
+      <a href="#">Space</a>
+      <a href="#">Travel</a>
     </Wrapper>
   );
 };
