@@ -35,5 +35,4 @@ storiesOf('Animation', module)
       <GlobalStyle />
       <Sandglass />
     </>
-  ))
-  .add('Image Wave', () => <ImageWave />);
+  ));
