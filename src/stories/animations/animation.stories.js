@@ -9,7 +9,6 @@ import SmoothParallax from './SmoothParallax';
 import ShowUp from './ShowUp';
 import Reveal from './Reveal';
 import Sandglass from './Sandglass';
-import ImageWave from './ImageWave';
 import { storiesOf } from '@storybook/react';
 
 storiesOf('Animation', module)
